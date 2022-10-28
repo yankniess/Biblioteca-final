@@ -13,28 +13,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 
-# Configure Django App for Heroku.
-import django_on_heroku
-django_on_heroku.settings(locals())
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-STATICFILES_DIRS = (os.path.join(
-    BASE_DIR, "my_app", "static"),)
-STATIC_ROOT = os.path.join(
-    os.path.dirname(BASE_DIR), "deployment", "collected_static")
-MEDIA_ROOT = os.path.join(
-    os.path.dirname(BASE_DIR), "deployment", "media")
-
-
-
-
-
-
+BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 IS_HEROKU = "DYNO" in os.environ
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -53,7 +35,7 @@ else:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '<HerokuAppName>.herokuapp.com']
 
 
 # Application definition
