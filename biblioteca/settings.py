@@ -35,7 +35,7 @@ else:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '<HerokuAppName>.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', '<HerokuAppName>.herokuapp.com/auth/login/']
 
 
 # Application definition
